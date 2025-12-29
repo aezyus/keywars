@@ -1,5 +1,5 @@
 {
-  description = "keywars (c) development environment";
+  description = "keywars development environment";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -12,24 +12,27 @@
         pkgs = import nixpkgs { inherit system; };
       in {
         devShells.default = pkgs.mkShell {
-          name = "dev-shell";
+          name = "keywars-dev-shell";
 
           packages = with pkgs; [
             gcc
             gnumake
             pkg-config
-            sqlite
-            libyaml
-            poppler-utils
+
+            # X11 & XCB Core Libraries
+            libx11
+            xorg.xorgproto
+
+            # Debugging & Testing
+            xorg.xev
             valgrind
             gdb
             strace
-            doxygen
-            graphviz
           ];
 
+
           shellHook = ''
-            echo "[+] keywars development shell loaded."
+            echo "[+] keywars development environment (X11) loaded."
           '';
         };
       });
