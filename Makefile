@@ -1,6 +1,6 @@
 CC	:= gcc
-CFLAGS	:= -Wall -Wextra -O2 $(shell pkg-config --cflags xcb-xkb)
-LIBS	:= $(shell pkg-config --libs xcb-xkb)
+CFLAGS	:= -Wall -Wextra -O2 $(shell pkg-config --cflags xcb-xkb xkbcommon xkbcommon-x11)
+LIBS	:= $(shell pkg-config --libs xcb-xkb xkbcommon xkbcommon-x11)
 TARGET	:= keywars
 
 $(TARGET): src/main.c
