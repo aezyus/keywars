@@ -21,8 +21,10 @@
 
             # X11 & XCB Core Libraries
             libx11
-            xorg.xorgproto
-
+	    libxcb
+	    xorg.xorgproto
+	    libxkbcommon
+	    
             # Debugging & Testing
             xorg.xev
             valgrind
